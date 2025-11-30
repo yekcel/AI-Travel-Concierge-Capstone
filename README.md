@@ -26,7 +26,7 @@ This project is a **multi-agent system built 100% with Google ADK** that turns a
 
 ```mermaid
 graph TD
-    A[" USER INPUT \ne.g. \"Rome, 4 people, senior with respiratory issues,\nextreme cleanliness, vegetarian\""] 
+    A[" USER INPUT: \n e.g. \"Italy, 4 people, senior with respiratory issues,\nextreme cleanliness, vegetarian\""] 
     --> B["SequentialAgent Pipeline\n(Main Orchestrator)"]
 
     B --> C["1. Profile Extractor\nLlmAgent → state['profile']"]
