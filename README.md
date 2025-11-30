@@ -53,31 +53,4 @@ The system is orchestrated by the **Planner Agent** following a three-phase work
       * **Summarizer Agent:** Compiles results, ensuring final compliance with all health rules.
       * **Catalog Generator Agent:** Uses the compiled data and mock `Image_Retrieval_Tool` to produce the final visual itinerary output.
 
-#### Key Concepts Applied (Demonstration of Learning)
 
-| Concept | Application |
-| :--- | :--- |
-| **Multi-agent System** | Utilized an advanced flow featuring **Sequential, Parallel, and Loop Agents** to distribute complex tasks across the planning, execution, and monitoring phases. |
-| **Tools (Built-in & Custom)** | Integrated **Google Search** (Built-in) for strategic data retrieval (weather, events, hotel review verification) and custom tools (`Image_Retrieval_Tool`, `Catalog_Formatting_Tool`). |
-| **Loop Agents** | The **Optimization Loop Agent** demonstrates sophisticated logic by actively iterating and modifying the solution (plan) until all constraints (budget and health) are met, rather than simply monitoring a static price. |
-| **Sessions & Memory** | **Long Term Memory** is used by the Planner Agent to store and recall the user's detailed health profile and preferences for subsequent trips, ensuring continued personalization. |
-
------
-
-### 3\. Documentation and Setup
-
-#### Code Repository
-
-The complete codebase, including agent definitions and mock tools, is available in the public GitHub repository linked in the submission form.
-
-#### Instructions for Setup
-
-1.  **Prerequisites:** Python 3.9+, The Agent Development Kit (ADK-Python).
-
-2.  **Environment:** Set the Google Gemini API Key as an environment variable: `export GEMINI_API_KEY="YOUR_API_KEY_HERE"`
-
-3.  **Execution Example:** The system is initiated with a comprehensive natural language query:
-
-    ```text
-    Plan a 10-day trip to Rome for 4 people. Our budget is $8,000 total. The party includes a senior with a respiratory issue and a need for extremely high cleanliness. We love historical sites but need low-impact walking tours.
-    ```
