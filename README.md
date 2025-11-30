@@ -26,21 +26,21 @@ This project is a **multi-agent system built 100% with Google ADK** that turns a
 
 ```mermaid
 graph TD
-    A[User Input\ne.g., "Rome, 4 people, senior with respiratory issues,\nextreme cleanliness, vegetarian"] 
-    --> B[SequentialAgent Pipeline\n(Main Orchestrator)]
-    
-    B --> C[1. Profile Extractor\nLlmAgent → state['profile']]
-    C --> D[2. Strategist\nSuggest dates using {profile.health/weather}]
-    D --> E[3. ParallelAgent\nConcurrent searches]
-    
-    E --> F[Flight Agent\nScale cost × travelers<br>Direct flights for low mobility]
-    E --> G[Hotel Agent\nPlaces API vetting\nCleanliness >9.5 + Breakfast + Photos]
-    E --> H[Activity Agent\nGolf-cart tours, vegetarian dining]
-    
-    E --> I[4. LoopAgent Optimizer\nMax 3 iterations\nIf total > budget → regenerate]
-    I --> J[5. Catalog Generator\nMarkdown + Embedded Images + Compliance]
-    J --> K[Final Visual Itinerary]
-    
-    style B fill:#e3f2fd,stroke:#1565c0
-    style E fill:#f3e5f5,stroke:#7b1fa2
-    style I fill:#fff3e0,stroke:#e65100
+    A[" USER INPUT \ne.g. \"Rome, 4 people, senior with respiratory issues,\nextreme cleanliness, vegetarian\""] 
+    --> B["SequentialAgent Pipeline\n(Main Orchestrator)"]
+
+    B --> C["1. Profile Extractor\nLlmAgent → state['profile']"]
+    C --> D["2. Strategist\nSuggest dates using health + weather"]
+    D --> E["3. ParallelAgent\nConcurrent searches"]
+
+    E --> F["Flight Agent\nScale cost × travelers\nDirect flights for low mobility"]
+    E --> G["Hotel Agent\nPlaces API vetting\nCleanliness >9.5 + Breakfast + Photos"]
+    E --> H["Activity Agent\nGolf-cart tours, vegetarian dining"]
+
+    E --> I["4. LoopAgent Optimizer\nMax 3 iterations\nIf total > budget → regenerate"]
+    I --> J["5. Catalog Generator\nMarkdown + Embedded Images + Compliance"]
+    J --> K["Final Visual Itinerary"]
+
+    style B fill:#e3f2fd,stroke:#1565c0,stroke-width:3px
+    style E fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style I fill:#fff3e0,stroke:#e65100,stroke-width:3px
