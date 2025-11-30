@@ -38,7 +38,7 @@ graph TD
     E --> H[Activity Agent\nGolf-cart tours, vegetarian dining]
     
     E --> I[4. LoopAgent Optimizer\nMax 3 iterations\nIf total > budget → regenerate]
-    I --> J[5. Catalog Generator<br>Markdown + Embedded Images + Compliance]
+    I --> J[5. Catalog Generator\nMarkdown + Embedded Images + Compliance]
     J --> K[Final Visual Itinerary]
     
     style B fill:#e3f2fd,stroke:#1565c0
