@@ -1,4 +1,4 @@
-##@ AI-Travel-Concierge-Capstone
+## AI-Travel-Concierge-Capstone
 # The Hyper-Personalized Travel Concierge Agent
 
 **Submission Track:** Concierge Agents
