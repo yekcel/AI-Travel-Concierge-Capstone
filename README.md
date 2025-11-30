@@ -30,12 +30,12 @@ graph TD
     --> B[SequentialAgent Pipeline\n(Main Orchestrator)]
     
     B --> C[1. Profile Extractor\nLlmAgent → state['profile']]
-    C --> D[2. Strategist<br>Suggest dates using {profile.health/weather}]
+    C --> D[2. Strategist\nSuggest dates using {profile.health/weather}]
     D --> E[3. ParallelAgent\nConcurrent searches]
     
-    E --> F[Flight Agent<br>Scale cost × travelers<br>Direct flights for low mobility]
-    E --> G[Hotel Agent<br>Places API vetting\nCleanliness >9.5 + Breakfast + Photos]
-    E --> H[Activity Agent<br>Golf-cart tours, vegetarian dining]
+    E --> F[Flight Agent\nScale cost × travelers<br>Direct flights for low mobility]
+    E --> G[Hotel Agent\nPlaces API vetting\nCleanliness >9.5 + Breakfast + Photos]
+    E --> H[Activity Agent\nGolf-cart tours, vegetarian dining]
     
     E --> I[4. LoopAgent Optimizer\nMax 3 iterations\nIf total > budget → regenerate]
     I --> J[5. Catalog Generator<br>Markdown + Embedded Images + Compliance]
