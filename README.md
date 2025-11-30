@@ -24,17 +24,23 @@ This project is a **multi-agent system built 100% with Google ADK** that turns a
 
 ### Architecture (SequentialAgent Pipeline)
 
+```mermaid
 graph TD
-    A[User Input: Prefs + Constraints<br>e.g., Age 65, Respiratory, Cleanliness Obsession] --> B[SequentialAgent Pipeline<br>(Core Orchestrator)]
-    B --> C[Step 1: Profile Extractor<br>(LlmAgent: Parse JSON, Store in State)]
-    C --> D[Step 2: Strategist<br>(Suggest Dates via {profile.state})]
-    D --> E[Step 3: ParallelAgent<br>(Concurrent: Flight + Hotel + Activity)]
-    E --> F[Flight Agent<br>(Tool: Budget Calc x Travelers)]
-    E --> G[Hotel Vetter<br>(Tool: Google Places API<br>Check Cleanliness >9.5, Amenities)]
-    E --> H[Activity Planner<br>(Match Interests/Food/Health)]
-    E --> I[Step 4: LoopAgent Optimizer<br>(Max 3 Iter: If Total > Budget, Regenerate Plan)]
-    I --> J[Step 5: Catalog Generator<br>(Markdown + Images/Maps from State)]
-    J --> K[Final Itinerary<br>Visual Catalog Output]
-    style B fill:#e1f5fe
-    style I fill:#fff3e0
-    style E fill:#f3e5f5
+    A[User Input<br>e.g., "Rome, 4 people, senior with respiratory issues,<br>extreme cleanliness, vegetarian"] 
+    --> B[SequentialAgent Pipeline<br>(Main Orchestrator)]
+    
+    B --> C[1. Profile Extractor<br>LlmAgent → state['profile']]
+    C --> D[2. Strategist<br>Suggest dates using {profile.health/weather}]
+    D --> E[3. ParallelAgent<br>Concurrent searches]
+    
+    E --> F[Flight Agent<br>Scale cost × travelers<br>Direct flights for low mobility]
+    E --> G[Hotel Agent<br>Places API vetting<br>Cleanliness >9.5 + Breakfast + Photos]
+    E --> H[Activity Agent<br>Golf-cart tours, vegetarian dining]
+    
+    E --> I[4. LoopAgent Optimizer<br>Max 3 iterations<br>If total > budget → regenerate]
+    I --> J[5. Catalog Generator<br>Markdown + Embedded Images + Compliance]
+    J --> K[Final Visual Itinerary]
+    
+    style B fill:#e3f2fd,stroke:#1565c0
+    style E fill:#f3e5f5,stroke:#7b1fa2
+    style I fill:#fff3e0,stroke:#e65100
