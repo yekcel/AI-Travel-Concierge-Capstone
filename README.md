@@ -1,5 +1,5 @@
-# AI-Travel-Concierge-Capstone
-## The Hyper-Personalized Travel Concierge Agent
+##@ AI-Travel-Concierge-Capstone
+# The Hyper-Personalized Travel Concierge Agent
 
 **Submission Track:** Concierge Agents
 **Project Goal:** To create a strategic travel planner that prioritizes user health, comfort, and personal preferences over generalized booking algorithms, producing a visually appealing, comprehensive final catalog.
