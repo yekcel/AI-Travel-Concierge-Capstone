@@ -26,19 +26,19 @@ This project is a **multi-agent system built 100% with Google ADK** that turns a
 
 ```mermaid
 graph TD
-    A[" USER INPUT: \n e.g. \"Italy, 4 people, senior with respiratory issues,\nextreme cleanliness, vegetarian\""] 
+    A[" USER INPUT:  e.g. \"Italy, 4 people, senior with respiratory issues,extreme cleanliness, vegetarian\""] 
     --> B["SequentialAgent Pipeline\n(Main Orchestrator)"]
 
-    B --> C["1. Profile Extractor\nLlmAgent → state['profile']"]
-    C --> D["2. Strategist\nSuggest dates using health + weather"]
-    D --> E["3. ParallelAgent\nConcurrent searches"]
+    B --> C["1. Profile ExtractorLlmAgent → state['profile']"]
+    C --> D["2. Strategist Suggest dates using health + weather"]
+    D --> E["3. ParallelAgent Concurrent searches"]
 
-    E --> F["Flight Agent\nScale cost × travelers\nDirect flights for low mobility"]
-    E --> G["Hotel Agent\nPlaces API vetting\nCleanliness >9.5 + Breakfast + Photos"]
-    E --> H["Activity Agent\nGolf-cart tours, vegetarian dining"]
+    E --> F["Flight Agent Scale cost × travelers Direct flights for low mobility"]
+    E --> G["Hotel Agent Places API vetting Cleanliness >9.5 + Breakfast + Photos"]
+    E --> H["Activity Agent Golf-cart tours, vegetarian dining"]
 
-    E --> I["4. LoopAgent Optimizer\nMax 3 iterations\nIf total > budget → regenerate"]
-    I --> J["5. Catalog Generator\nMarkdown + Embedded Images + Compliance"]
+    E --> I["4. LoopAgent Optimizer Max 3 iterations If total > budget → regenerate"]
+    I --> J["5. Catalog Generator Markdown + Embedded Images + Compliance"]
     J --> K["Final Visual Itinerary"]
 
     style B fill:#e3f2fd,stroke:#1565c0,stroke-width:3px
