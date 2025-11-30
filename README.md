@@ -1,7 +1,3 @@
-حتماً\! در اینجا فایل **`README.md`** کامل و نهایی شما برای مخزن GitHub پروژه Capstone، بر اساس تمامی ویژگی‌های پیشرفته‌ای که طراحی کردیم، آمده است. این فایل شامل تمام جزئیات فنی و مستندات مورد نیاز برای ارزیابی است.
-
------
-
 # ✈️ The Hyper-Personalized Travel Concierge Agent
 
 **Submission Track:** Concierge Agents
