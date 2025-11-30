@@ -2,15 +2,7 @@
 **Hyper-Personalized, Health-Safe, Budget-Optimized Travel Planner**  
 Built with Google Agent Development Kit (ADK) – Kaggle Agents Intensive Capstone Project 2025  
 
-![Banner](https://raw.githubusercontent.com/yourusername/gemini-adk-travel-concierge/main/assets/banner.jpg)  
-*(تصویر بالا رو خودت بساز یا از Canva دانلود کن و تو فولدر `assets/` بذار)*
-
-**Track:** Concierge Agents | **Submission Date:** December 1, 2025  
-**Live Demo Video (2:30):** https://youtu.be/your-video-link  
-**GitHub:** https://github.com/yourusername/gemini-adk-travel-concierge  
-
 ---
-
 ### Problem
 Travel planning is **stressful, time-consuming, and often unsafe** for real people:
 - 10–15 hours wasted per trip across 10+ websites  
