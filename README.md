@@ -1,48 +1,54 @@
+# Gemini ADK Travel Concierge  
+**Hyper-Personalized, Health-Safe, Budget-Optimized Travel Planner**  
+Built with Google Agent Development Kit (ADK) – Kaggle Agents Intensive Capstone Project 2025  
 
+![Banner](https://raw.githubusercontent.com/yourusername/gemini-adk-travel-concierge/main/assets/banner.jpg)  
+*(تصویر بالا رو خودت بساز یا از Canva دانلود کن و تو فولدر `assets/` بذار)*
 
-# Gemini-Powered Personalized Travel Concierge: A Multi-Agent ADK System
-## Project Overview and Pitch
-### The Problem
-Travel planning is notoriously complex, stressful, and time-consuming. Travelers must juggle multiple websites for flights, hotels, activities, and visas, compare prices, and often overlook critical details like baggage rules, real-time flight changes, or accessibility needs. Existing tools (e.g., Google Flights or Booking.com) offer basic searches but lack holistic, responsive planning. For diverse groups—families with seniors, couples with health issues, or solo adventurers—personalization is minimal, leading to suboptimal or unsafe itineraries. This results in wasted time (average 10-15 hours per trip), budget overruns (up to 20% due to poor comparisons), and frustration (e.g., inaccessible hotels for mobility-limited users).
-## The Solution
-Hyper-Personalized Travel Concierge Agent: A multi-agent system built with Google's Agent Development Kit (ADK) that acts as a "digital travel butler." It ingests user preferences (e.g., budget, health constraints like respiratory issues or low walking tolerance, cleanliness obsessions, interests in history vs. nature, food preferences, sleep patterns) and generates a fully customized 7-14 day itinerary. Key innovations:
+**Track:** Concierge Agents | **Submission Date:** December 1, 2025  
+**Live Demo Video (2:30):** https://youtu.be/your-video-link  
+**GitHub:** https://github.com/yourusername/gemini-adk-travel-concierge  
 
-Personalization Engine: Factors in age, mobility, illnesses (respiratory/gut), night-owl schedules, weather preferences (warm/cool), and niche interests (historical sites, eco-tours, shopping).
-Dynamic Optimization: A loop agent iteratively refines plans, checking costs against budget and regenerating alternatives if exceeded.
-Real-World Integration: Agents query Google Places API for vetted hotels (ratings, breakfast, amenities, cleanliness) and activities.
-Output Excellence: Generates a visual catalog with embedded images, maps, and pros/cons.
+---
 
-This agent streamlines planning into a 5-minute conversation, saving users 10+ hours per trip while ensuring safety and delight.
-Value Proposition
+### Problem
+Travel planning is **stressful, time-consuming, and often unsafe** for real people:
+- 10–15 hours wasted per trip across 10+ websites  
+- No tool understands **age**, **respiratory issues**, **low walking tolerance**, **gut problems**, **extreme cleanliness obsession**, **vegetarian + Italian food**, **mild weather**, **night-owl/early-bird rhythm**, or **family composition**  
+- Result: budget overruns, inaccessible hotels, breathing problems in summer heat, exhausting tours  
 
-Time Savings: Reduces planning from hours to minutes; early testers reported 90% less manual research.
-Cost Efficiency: Optimizes budgets (e.g., suggests off-peak dates, cheaper flights without sacrificing needs), potentially saving 15-25% on trips.
-Personalization Impact: Handles edge cases (e.g., low-mobility tours via golf carts, allergen-free dining), making travel inclusive for 20% of users with disabilities/health issues.
-Scalability: Deployable as a web app; future extensions could integrate real bookings via APIs.
-Track Fit: Concierge Agents – Directly automates personal life tasks like travel, with AI-driven empathy and adaptation.
+### Solution: A True Digital Travel Butler
+This project is a **multi-agent system built 100% with Google ADK** that turns a single message into a **complete, visual, personalized travel plan** in under 2 minutes.
 
-Innovation: Unlike single-model tools, this uses ADK's multi-agent orchestration for parallel/sequential/loop flows, ensuring robust, explainable decisions. Built for the Kaggle Agents Intensive Capstone (November 2025), demonstrating 5+ key concepts: Multi-agent systems (parallel/sequential/loop), Tools (custom + Google Places), Sessions & Memory (InMemorySessionService + state management), Observability (event logging/tracing), and Context Engineering (compaction via summaries).
+**Features**  
+- Understands **health constraints**, **cleanliness obsession (>9.5/10)**, **food allergies**, **mobility limits**, **sleep patterns**  
+- Automatically picks **best dates** (e.g., mild October for respiratory health)  
+- Searches **flights + hotels + activities** in parallel  
+- **LoopAgent** re-plans up to 3× if over budget — never violates rules  
+- **Google Places integration** to vet real hotels for cleanliness, breakfast, wheelchair access, and photos  
+- Outputs a **beautiful Markdown catalog** with images, maps, day-by-day itinerary, and compliance report  
 
-## Setup
-1. `pip install -r requirements.txt`
-2. `.env` with GEMINI_API_KEY
-3. `python main.py`
+---
 
-## Key Features
-- **Personalization**: Handles age, health (respiratory, mobility), cleanliness, food, weather, sleep.
-- **Optimization Loop**: Iterates plans until under budget (max 3x).
-- **Hotel Vetting**: Real Places API queries for ratings/amenities.
-- **Visual Catalog**: Markdown with image placeholders (extend with Imagen API).
-- **Observability**: Logs tool calls, events, metrics (cost, iterations).
+### Architecture (SequentialAgent Pipeline)
 
-## Diagrams
-See architecture Mermaid above.
-
-## Evaluation
-- **Multi-Agent**: Parallel/Sequential/Loop.
-- **Tools**: Custom budget + Google Places.
-- **Memory**: Session state persists profile.
-- **Observability**: Logging + tracing.
-- **Context**: Compaction in prompts.
-
-Demo: Run with sample input for Italy trip output.
+```mermaid
+graph TD
+    A[User Input<br>e.g., "Rome, 4 people, senior with respiratory issues,<br>extreme cleanliness, vegetarian"] 
+    --> B[SequentialAgent Pipeline<br>(Main Orchestrator)]
+    
+    B --> C[1. Profile Extractor<br>LlmAgent → state['profile']]
+    C --> D[2. Strategist<br>Suggest dates using {profile.health/weather}]
+    D --> E[3. ParallelAgent<br>Concurrent searches]
+    
+    E --> F[Flight Agent<br>Scale cost × travelers<br>Direct flights for low mobility]
+    E --> G[Hotel Agent<br>Places API vetting<br>Cleanliness >9.5 + Breakfast + Photos]
+    E --> H[Activity Agent<br>Golf-cart tours, vegetarian dining]
+    
+    E --> I[4. LoopAgent Optimizer<br>Max 3 iterations<br>If total > budget → regenerate]
+    I --> J[5. Catalog Generator<br>Markdown + Embedded Images + Compliance]
+    J --> K[Final Visual Itinerary]
+    
+    style B fill:#e3f2fd,stroke:#1565c0
+    style E fill:#f3e5f5,stroke:#7b1fa2
+    style I fill:#fff3e0,stroke:#e65100
